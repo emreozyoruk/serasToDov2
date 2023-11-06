@@ -5,6 +5,7 @@ import { useState } from 'react';
 
 function App() {
   const [tasks, setTasks] = useState([]);
+  
   const createTask = (title, taskDesc) => {
     const createdTasks = [
       ...tasks,
@@ -32,8 +33,6 @@ function App() {
       return task; 
     })
       setTasks(updateTasks)
-
-    
   }
   return (
     <div className="App">
