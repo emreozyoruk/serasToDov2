@@ -1,4 +1,9 @@
 import { useState } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+
+
 
 function TaskCreate({ onCreate ,task, taskFormUpdate , onUpdate }) {
   const [title, setTitle] = useState(task ? task.title : " ");
@@ -38,6 +43,7 @@ function TaskCreate({ onCreate ,task, taskFormUpdate , onUpdate }) {
           />
           <button className="update-button" onClick={handleSubmit}>
             Düzenle
+            <FontAwesomeIcon icon={faCheck} className='plusIkon' />
           </button>
         </form>
       </div> 
@@ -53,8 +59,9 @@ function TaskCreate({ onCreate ,task, taskFormUpdate , onUpdate }) {
           className="task-input"
           rows={5}
         />
-        <button className="task-button" onClick={handleSubmit}>
+        <button className="task-button" onClick={handleSubmit} > 
           Oluştur
+          <FontAwesomeIcon icon={faPlus} className='plusIkon' />
         </button>
       </form>
        </div> }

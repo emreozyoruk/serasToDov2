@@ -68,7 +68,7 @@
 .task-edit {
   padding: 5px;
   font-size: 15px;
-  width: 100px;
+  width: 120px;
   border: none;
   border-radius: 30px;
   background-color: blue;
@@ -78,10 +78,14 @@
 .task-delete {
   padding: 5px;
   font-size: 15px;
-  width: 60px;
+  width: 80px;
   border: none;
   border-radius: 30px;
   background-color: red;
   color: white;
   margin-right: 10px;
 }
+ .plusIkon {
+  margin-left: 15px;
+ }
+  
