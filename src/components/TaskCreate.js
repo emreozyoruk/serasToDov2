@@ -2,10 +2,14 @@ import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import {useContext} from 'react';
+import TaskContext from '../context/task';
 
 
 
-function TaskCreate({ onCreate ,task, taskFormUpdate , onUpdate }) {
+function TaskCreate({  task, taskFormUpdate , onUpdate }) {
+  const {createTask , editTaskById } = useContext(TaskContext)
+
   const [title, setTitle] = useState(task ? task.title : " ");
   const [taskDesc, setTaskDesc] = useState(task ? task.taskDesc : " ");
 
@@ -18,9 +22,9 @@ function TaskCreate({ onCreate ,task, taskFormUpdate , onUpdate }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     if(taskFormUpdate){
-    onUpdate(task.id , title , taskDesc)
+      onUpdate(task.id , title , taskDesc)
     }else {
-      onCreate(title, taskDesc);
+      createTask(title, taskDesc);
     }
 
     setTitle('');

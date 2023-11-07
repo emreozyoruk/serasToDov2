@@ -3,12 +3,18 @@ import TaskCreate from "./TaskCreate";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { faPencil } from '@fortawesome/free-solid-svg-icons';
+import {useContext} from 'react';
+import TaskContext from '../context/task';
 
 
-function TaskShow({ task, onDelete , onUpdate}) {
+function TaskShow({task }) {
+  const {deleteTaskById , editTaskById} = useContext(TaskContext)
+
+
   const [showEdit , setShowEdit] = useState(false)
   const handleDeleteClick = () => {
-    onDelete(task.id);
+    // onDelete(task.id);
+    deleteTaskById(task.id);
 };
 
 const handleEditClick = () => {
@@ -16,14 +22,16 @@ const handleEditClick = () => {
 };
 const handleSubmit = (id, updatedTitle , updatedTaskText) => {
   setShowEdit(false)
-  onUpdate(id , updatedTitle , updatedTaskText) 
+ // onUpdate(id , updatedTitle , updatedTaskText) 
+  editTaskById(id , updatedTitle , updatedTaskText)
 };
 
   console.log(task);
   return (
     <div className="task-show">
 
-{showEdit ? <TaskCreate  task = {task}  taskFormUpdate = {true} onUpdate={handleSubmit} />  : <div><h3 className="task-title">Göreviniz</h3>
+{showEdit ? <TaskCreate  task = {task}  taskFormUpdate = {true} 
+          onUpdate = {handleSubmit} />  : <div><h3 className="task-title">Göreviniz</h3>
       <p>{task.title}</p>
       <h3 className="task-title">Yapılacaklar</h3>
       <p>{task.taskDesc}</p>
