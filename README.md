@@ -1,4 +1,4 @@
-i have to live a api before use 
+i have to live an api before use 
 
 
 # Getting Started with Create React App
